@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript"
-      src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js">
-  </script>
-  <script type="text/javascript"
-      src="./gql/index.js">
-  </script>
-  <script type="text/javascript"
-      src="./languageMap.js">
-  </script>
-  <script type="text/javascript"
-      src="./gql/watchItem.js">
-  </script>
-  <link rel="stylesheet" type="text/css" href="./player.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="player.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.compiled.js"></script>
+    <script src="languageMap.js"></script>
+    <script src="player.js"></script>
 </head>
 <body>
-  <cast-media-player id="player"></cast-media-player>
-  <!-- Custom UI Media Element (*Not recommended) -->
-  <!-- TODO: Uncomment the block below if have to use Custom UI -->
-  <!-- <video class="castMediaElement" id="player"></video> -->
-  <!-- Custom UI Media Element End -->
-  <script type="text/javascript"
-      src="./player.js">
-  </script>
+    <div id="player-container">
+        <div id="loader"></div>
+        <video id="video" controls autoplay></video>
+    </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const languageMap ={
+const languageMap = {
 "ab": "Abkhaz",
 "aa": "Afar",
 "af": "Afrikaans",
@@ -192,5 +192,4 @@ const languageMap ={
 "yo": "Yoruba",
 "za": "Zhuang",
 "zu": "Zulu"
-}
-export default languageMap;
+};
