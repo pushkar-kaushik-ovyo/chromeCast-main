@@ -158,11 +158,16 @@ function copyThumbnail(){
   }
 }
 function removeThumbnail(){
-  if ( document.querySelector( 'touch-controls' ) === null) {
-    return
+  if (document.querySelector('touch-controls') === null) {
+    return;
   }
-  if(document.querySelector( 'touch-controls' ).shadowRoot){
-    document.querySelector( 'touch-controls' ).shadowRoot.querySelector( '#castMetadataImage' ).remove()
+  const touchControls = document.querySelector('touch-controls').shadowRoot;
+  if (!touchControls) {
+    return;
+  }
+  const thumbnailElement = touchControls.querySelector('#castMetadataImage');
+  if (thumbnailElement) {
+    thumbnailElement.remove();
   }
 }
 setPlayerStyle(
