@@ -84,12 +84,24 @@ function getBanners(id,limit) {
 function setBanners(){
   // up to 10 images
   getBanners(386,10).then((data)=>{
+    if (!data || !data.object || !data.object.contents || !data.object.contents.objects) {
+      console.log("[BANNER] Invalid data structure received:", data);
+      return;
+    }
     const bannerList = data.object.contents.objects;
+    if (!Array.isArray(bannerList)) {
+      console.log("[BANNER] Banner list is not an array:", bannerList);
+      return;
+    }
     bannerList.forEach((item,index)=>{
-      playerElement.style.setProperty('--slideshow-image-' + (index+1), 'url("'+item.meta.img_url+'")');
-    })
+      if (item && item.meta && item.meta.img_url) {
+        playerElement.style.setProperty('--slideshow-image-' + (index+1), 'url("'+item.meta.img_url+'")');
+      }
+    });
     createText(bannerList);
-  })
+  }).catch(error => {
+    console.error("[BANNER] Error fetching banners:", error);
+  });
 }
 setBanners();
 /*** Slide banner  ***/
